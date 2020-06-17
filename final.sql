@@ -30,7 +30,7 @@ CREATE TABLE `address` (
   `addressee_contact` char(50) NOT NULL,
   `addressee_address` char(50) NOT NULL,
   PRIMARY KEY (`address_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
+INSERT INTO `address` VALUES (1,'張三','0900001253','桃園市中壢區'),(2,'李四','0951231988','台北市大安區'),(3,'小名','0932344087','台中市大雅區');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +60,7 @@ CREATE TABLE `goods` (
   PRIMARY KEY (`goods_ID`),
   KEY `position_FK` (`position_ID`) USING BTREE,
   CONSTRAINT `position_FK` FOREIGN KEY (`position_ID`) REFERENCES `position` (`position_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,6 +69,7 @@ CREATE TABLE `goods` (
 
 LOCK TABLES `goods` WRITE;
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
+INSERT INTO `goods` VALUES (1,'手機','A',4,1500,1),(2,'蘋果','F',2,100,2),(3,'香蕉','F',3,70,2);
 /*!40000 ALTER TABLE `goods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,14 +84,14 @@ CREATE TABLE `order` (
   `order_ID` int(11) NOT NULL AUTO_INCREMENT,
   `addressee_ID` int(11) DEFAULT NULL,
   `shipper_ID` int(11) DEFAULT NULL,
-  `order_time` char(1) NOT NULL,
+  `order_time` date NOT NULL,
   PRIMARY KEY (`order_ID`),
   KEY `order` (`order_ID`),
   KEY `addressee_FK` (`addressee_ID`) USING BTREE,
   KEY `shipper_FK` (`shipper_ID`) USING BTREE,
   CONSTRAINT `addressee_FK` FOREIGN KEY (`addressee_ID`) REFERENCES `address` (`address_ID`),
   CONSTRAINT `shipper_FK` FOREIGN KEY (`shipper_ID`) REFERENCES `shipper` (`shipper_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,6 +100,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
+INSERT INTO `order` VALUES (1,1,1,'1999-10-22'),(2,2,2,'2020-06-01'),(3,2,3,'2021-09-16');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +120,7 @@ CREATE TABLE `order_content` (
   KEY `goods_FK` (`goods_ID`) USING BTREE,
   CONSTRAINT `goods_FK` FOREIGN KEY (`goods_ID`) REFERENCES `goods` (`goods_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `order_FK` FOREIGN KEY (`order_ID`) REFERENCES `order` (`order_ID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,6 +129,7 @@ CREATE TABLE `order_content` (
 
 LOCK TABLES `order_content` WRITE;
 /*!40000 ALTER TABLE `order_content` DISABLE KEYS */;
+INSERT INTO `order_content` VALUES (1,1,1),(1,2,2),(2,1,3);
 /*!40000 ALTER TABLE `order_content` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +148,7 @@ CREATE TABLE `position` (
   `position_block` char(50) NOT NULL,
   `position_shelf` char(50) NOT NULL,
   PRIMARY KEY (`position_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,6 +157,7 @@ CREATE TABLE `position` (
 
 LOCK TABLES `position` WRITE;
 /*!40000 ALTER TABLE `position` DISABLE KEYS */;
+INSERT INTO `position` VALUES (1,'北1','台北市','0224976219','A區','A架'),(2,'北2','桃園市','034930755','B區','C架'),(3,'中1','台中市','0434830744','A區','A架'),(4,'南1','高雄市','0787878787','A區','B架');
 /*!40000 ALTER TABLE `position` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,7 +173,7 @@ CREATE TABLE `shipper` (
   `shipper_name` char(50) NOT NULL,
   `shipper_contact` char(50) NOT NULL,
   PRIMARY KEY (`shipper_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,6 +182,7 @@ CREATE TABLE `shipper` (
 
 LOCK TABLES `shipper` WRITE;
 /*!40000 ALTER TABLE `shipper` DISABLE KEYS */;
+INSERT INTO `shipper` VALUES (1,'小王','0987878787'),(2,'李四','0954875487'),(3,'小明','0912345678');
 /*!40000 ALTER TABLE `shipper` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -189,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-17 21:07:34
+-- Dump completed on 2020-06-17 23:53:03
