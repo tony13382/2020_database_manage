@@ -25,11 +25,11 @@ DROP TABLE IF EXISTS `address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `address` (
-  `address_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `addressee_ID` int(11) NOT NULL AUTO_INCREMENT,
   `addressee_name` char(50) NOT NULL,
   `addressee_contact` char(50) NOT NULL,
   `addressee_address` char(50) NOT NULL,
-  PRIMARY KEY (`address_ID`)
+  PRIMARY KEY (`addressee_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -89,9 +89,9 @@ CREATE TABLE `order` (
   KEY `order` (`order_ID`),
   KEY `addressee_FK` (`addressee_ID`) USING BTREE,
   KEY `shipper_FK` (`shipper_ID`) USING BTREE,
-  CONSTRAINT `addressee_FK` FOREIGN KEY (`addressee_ID`) REFERENCES `address` (`address_ID`),
+  CONSTRAINT `addressee_FK` FOREIGN KEY (`addressee_ID`) REFERENCES `address` (`addressee_ID`),
   CONSTRAINT `shipper_FK` FOREIGN KEY (`shipper_ID`) REFERENCES `shipper` (`shipper_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +100,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (1,1,1,'1999-10-22'),(2,2,2,'2020-06-01'),(3,2,3,'2021-09-16');
+INSERT INTO `order` VALUES (1,1,1,'1999-10-22'),(2,2,2,'2020-06-01'),(3,2,3,'2021-09-16'),(4,2,3,'2021-09-30');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-17 23:53:03
+-- Dump completed on 2020-06-18 21:26:18
