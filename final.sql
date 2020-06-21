@@ -39,7 +39,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,'å¼µä¸‰','0900001253','æ¡ƒåœ’å¸‚ä¸­å£¢å€'),(2,'æŽå››','0951231988','å°åŒ—å¸‚å¤§å®‰å€'),(3,'å°å','0932344087','å°ä¸­å¸‚å¤§é›…å€');
+INSERT INTO `address` VALUES (1,'±i¤T','0900001253','®ç¶é¥«¤¤Ãc°Ï'),(2,'§õ¥|','0951231988','¥x¥_¥«¤j¦w°Ï'),(3,'¤p¦W','0932344087','¥x¤¤¥«¤j¶®°Ï');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +69,7 @@ CREATE TABLE `goods` (
 
 LOCK TABLES `goods` WRITE;
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
-INSERT INTO `goods` VALUES (1,'æ‰‹æ©Ÿ','A',4,1500,1),(2,'è˜‹æžœ','F',2,100,2),(3,'é¦™è•‰','F',3,70,2);
+INSERT INTO `goods` VALUES (1,'¤â¾÷','A',4,1500,1),(2,'Ä«ªG','F',2,100,2),(3,'­»¿¼','F',3,70,2);
 /*!40000 ALTER TABLE `goods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,7 +157,7 @@ CREATE TABLE `position` (
 
 LOCK TABLES `position` WRITE;
 /*!40000 ALTER TABLE `position` DISABLE KEYS */;
-INSERT INTO `position` VALUES (1,'åŒ—1','å°åŒ—å¸‚','0224976219','Aå€','Aæž¶'),(2,'åŒ—2','æ¡ƒåœ’å¸‚','034930755','Bå€','Cæž¶'),(3,'ä¸­1','å°ä¸­å¸‚','0434830744','Aå€','Aæž¶'),(4,'å—1','é«˜é›„å¸‚','0787878787','Aå€','Bæž¶');
+INSERT INTO `position` VALUES (1,'¥_1','¥x¥_¥«','0224976219','A°Ï','A¬['),(2,'¥_2','®ç¶é¥«','034930755','B°Ï','C¬['),(3,'¤¤1','¥x¤¤¥«','0434830744','A°Ï','A¬['),(4,'«n1','°ª¶¯¥«','0787878787','A°Ï','B¬[');
 /*!40000 ALTER TABLE `position` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +182,7 @@ CREATE TABLE `shipper` (
 
 LOCK TABLES `shipper` WRITE;
 /*!40000 ALTER TABLE `shipper` DISABLE KEYS */;
-INSERT INTO `shipper` VALUES (1,'å°çŽ‹','0987878787'),(2,'æŽå››','0954875487'),(3,'å°æ˜Ž','0912345678');
+INSERT INTO `shipper` VALUES (1,'¤p¤ý','0987878787'),(2,'§õ¥|','0954875487'),(3,'¤p©ú','0912345678');
 /*!40000 ALTER TABLE `shipper` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
