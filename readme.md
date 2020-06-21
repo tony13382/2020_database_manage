@@ -9,8 +9,6 @@
 
 # APP USED
 
-[軟體.zip](WEB%20Update%20List%204c6b6bb81afb4714ad44ddebc183cda3.zip)
-
 ## 軟體清單
 
 - Tomcat 9.0.8
